@@ -1,5 +1,7 @@
 // script.js
 let contentCache = null;
+let baseContent = null;
+let explicitActive = false;
 
 function getByPath(obj, path) {
     if (!path || path.startsWith('_')) return undefined;
@@ -515,13 +517,80 @@ function initBackToTop() {
     update();
 }
 
+function deepMerge(base, override) {
+    const result = {};
+    for (const key in base) {
+        if (Object.prototype.hasOwnProperty.call(base, key)) {
+            if (override && typeof base[key] === 'object' && !Array.isArray(base[key]) && base[key] !== null
+                && typeof override[key] === 'object' && !Array.isArray(override[key]) && override[key] !== null) {
+                result[key] = deepMerge(base[key], override[key]);
+            } else if (override && override[key] !== undefined) {
+                result[key] = override[key];
+            } else {
+                result[key] = base[key];
+            }
+        }
+    }
+    return result;
+}
+
+function setExplicitMode(on) {
+    explicitActive = on;
+    const body = document.body;
+    const btn = document.getElementById('explicit-toggle');
+    const label = document.getElementById('explicit-toggle-label');
+    const icon = btn ? btn.querySelector('i') : null;
+
+    if (on) {
+        body.classList.add('explicit-mode');
+        if (label) label.textContent = 'Safe Mode';
+        if (icon) icon.className = 'fas fa-shield-halved text-lg';
+        if (btn) {
+            btn.classList.remove('bg-stone-800', 'hover:bg-red-900', 'border-stone-600', 'hover:border-red-500', 'text-stone-300', 'hover:text-red-400');
+            btn.classList.add('bg-red-900', 'hover:bg-stone-800', 'border-red-500', 'hover:border-stone-600', 'text-red-400', 'hover:text-stone-300');
+        }
+        if (baseContent && baseContent.explicit) {
+            const merged = deepMerge(baseContent, baseContent.explicit);
+            applyContent(merged);
+        }
+    } else {
+        body.classList.remove('explicit-mode');
+        if (label) label.textContent = 'Unfiltered';
+        if (icon) icon.className = 'fas fa-radiation text-lg';
+        if (btn) {
+            btn.classList.remove('bg-red-900', 'hover:bg-stone-800', 'border-red-500', 'hover:border-stone-600', 'text-red-400', 'hover:text-stone-300');
+            btn.classList.add('bg-stone-800', 'hover:bg-red-900', 'border-stone-600', 'hover:border-red-500', 'text-stone-300', 'hover:text-red-400');
+        }
+        if (baseContent) {
+            applyContent(baseContent);
+        }
+    }
+
+    try { sessionStorage.setItem('explicit', on ? '1' : '0'); } catch(e) {}
+}
+
+function initExplicitToggle() {
+    const btn = document.getElementById('explicit-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+        setExplicitMode(!explicitActive);
+    });
+    try {
+        if (sessionStorage.getItem('explicit') === '1') {
+            setExplicitMode(true);
+        }
+    } catch(e) {}
+}
+
 window.onload = () => {
     fetch('content.json')
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(content => {
+            baseContent = content;
             applyContent(content);
             populateContacts(content.contacts);
             populateSources(content.sources);
+            initExplicitToggle();
         })
         .catch(() => {
             populateContacts([
@@ -536,6 +605,7 @@ window.onload = () => {
                 { name: "KRON 4", email: "BreakingNews@kron4.com" },
                 { name: "KCRA", email: "news@kcra.com" }
             ]);
+            initExplicitToggle();
         });
     initShareButtons();
     initFooterShareLinks();

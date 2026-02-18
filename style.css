@@ -149,3 +149,174 @@ footer {
     padding-left: max(1.5rem, env(safe-area-inset-left));
     padding-right: max(1.5rem, env(safe-area-inset-right));
 }
+
+/* ===== EXPLICIT MODE — NUCLEAR RED/BLACK OVERHAUL ===== */
+body.explicit-mode {
+    transition: background-color 0.4s ease;
+}
+
+/* Emerald text → Red */
+body.explicit-mode .text-emerald-400,
+body.explicit-mode .text-emerald-300,
+body.explicit-mode .text-emerald-200 {
+    color: #f87171 !important;
+}
+body.explicit-mode .text-emerald-400\/95 {
+    color: rgba(248, 113, 113, 0.95) !important;
+}
+body.explicit-mode .text-emerald-500 {
+    color: #ef4444 !important;
+}
+
+/* Emerald backgrounds → Red/Crimson */
+body.explicit-mode .bg-emerald-500,
+body.explicit-mode .bg-emerald-600 {
+    background-color: #dc2626 !important;
+}
+body.explicit-mode .bg-emerald-700 {
+    background-color: #b91c1c !important;
+}
+body.explicit-mode .bg-emerald-800 {
+    background-color: #991b1b !important;
+}
+body.explicit-mode .bg-emerald-900 {
+    background-color: #450a0a !important;
+}
+body.explicit-mode .bg-emerald-900\/40 {
+    background-color: rgba(69, 10, 10, 0.4) !important;
+}
+body.explicit-mode .bg-emerald-950 {
+    background-color: #1a0505 !important;
+}
+
+/* Hover states */
+body.explicit-mode .hover\:bg-emerald-400:hover {
+    background-color: #f87171 !important;
+}
+body.explicit-mode .hover\:bg-emerald-500:hover {
+    background-color: #ef4444 !important;
+}
+body.explicit-mode .hover\:bg-emerald-600:hover {
+    background-color: #dc2626 !important;
+}
+body.explicit-mode .hover\:bg-emerald-700:hover {
+    background-color: #b91c1c !important;
+}
+body.explicit-mode .hover\:text-emerald-400:hover {
+    color: #f87171 !important;
+}
+body.explicit-mode .hover\:text-emerald-200:hover {
+    color: #fca5a5 !important;
+}
+
+/* Borders */
+body.explicit-mode .border-emerald-500 {
+    border-color: #ef4444 !important;
+}
+body.explicit-mode .border-emerald-600,
+body.explicit-mode .hover\:border-emerald-600:hover {
+    border-color: #dc2626 !important;
+}
+body.explicit-mode .border-emerald-700 {
+    border-color: #b91c1c !important;
+}
+body.explicit-mode .border-t-4.border-emerald-500 {
+    border-top-color: #ef4444 !important;
+}
+
+/* Focus rings */
+body.explicit-mode .focus\:border-emerald-500:focus {
+    border-color: #ef4444 !important;
+}
+body.explicit-mode .focus\:ring-emerald-500:focus {
+    --tw-ring-color: #ef4444 !important;
+}
+body.explicit-mode .focus\:ring-emerald-400:focus {
+    --tw-ring-color: #f87171 !important;
+}
+
+/* Emerald dividers → red */
+body.explicit-mode .bg-emerald-900[class*="h-px"],
+body.explicit-mode .h-px.bg-emerald-900 {
+    background-color: #450a0a !important;
+}
+
+/* Hero overlay — heavier, more oppressive */
+body.explicit-mode .bg-gradient-to-b.from-black\/55 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.85), black) !important;
+}
+
+/* Shadow glow → red */
+body.explicit-mode .shadow-emerald-900\/30 {
+    --tw-shadow-color: rgba(127, 29, 29, 0.3);
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), 0 10px 15px -3px rgba(127, 29, 29, 0.3) !important;
+}
+
+/* Back to top button */
+body.explicit-mode .back-to-top {
+    background: #dc2626;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+}
+body.explicit-mode .back-to-top:hover {
+    background: #ef4444;
+}
+
+/* Skip link */
+body.explicit-mode .skip-link {
+    background: #dc2626;
+}
+body.explicit-mode .skip-link:focus {
+    outline-color: #f87171;
+}
+
+/* Audio player accents */
+body.explicit-mode #audio-progress {
+    background-color: #ef4444 !important;
+}
+body.explicit-mode #audio-play-btn {
+    background-color: #dc2626 !important;
+}
+body.explicit-mode #audio-play-btn:hover {
+    background-color: #ef4444 !important;
+}
+
+/* Mobile menu hover */
+body.explicit-mode .mobile-nav-link:hover {
+    color: #f87171;
+    background: rgba(127, 29, 29, 0.2);
+}
+
+/* Template scrollbar */
+body.explicit-mode #template::-webkit-scrollbar-thumb {
+    background: #991b1b;
+}
+
+/* Nav icon */
+body.explicit-mode .nav-bar .fa-mountain {
+    color: #ef4444 !important;
+}
+body.explicit-mode .nav-bar .group-hover\:text-emerald-400 {
+    color: #ef4444 !important;
+}
+
+/* Red-400 stays red (threat paragraph2) */
+body.explicit-mode .text-red-400 {
+    color: #ff6b6b !important;
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Amber icons → full red in explicit mode */
+body.explicit-mode .text-amber-400 {
+    color: #ef4444 !important;
+}
+
+/* CTA text on red bg needs to stay dark */
+body.explicit-mode .hero-cta {
+    color: #fff !important;
+}
+
+/* Explicit toggle button positioning */
+.explicit-toggle {
+    transition: all 0.3s ease;
+}

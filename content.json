@@ -111,6 +111,81 @@
     "templateCopied": "Full template copied. Open your mail app and paste.",
     "linkCopied": "Link copied — paste to share"
   },
+  "explicit": {
+    "meta": {
+      "title": "Save Skyline Park — Sacramento Is Stealing Your Land",
+      "shareText": "Sacramento is bulldozing Skyline Park to build 185 units nobody asked for. Your tax dollars. Your land. Fight back."
+    },
+    "nav": {
+      "ctaButton": "RAISE HELL"
+    },
+    "hero": {
+      "badge": "Sacramento vs. Napa County · They Don't Give a Damn",
+      "headline": "The State Is Stealing Your Park and Daring You to Stop Them",
+      "subhead": "You paid $7.26 million for this land. Sacramento kept 5 acres anyway and handed it to their developer buddies. Let that sink in.",
+      "ctaButton": "Give Them Hell"
+    },
+    "threat": {
+      "label": "THE BULLSHIT — EXPOSED",
+      "heading": "SACRAMENTO SOLD YOU OUT\nAND THEY'RE NOT DONE",
+      "paragraph1": "5 acres along Imola Avenue — the flat area your community actually uses for **pow wows, SCA events, Boy Scout camping, equestrian shows, BottleRock overflow parking, and wildfire crew base camps**. Gone. Because some bureaucrat in Sacramento decided YOUR land is \"surplus.\"",
+      "paragraph2": "Here's how the scam works: the state slapped a \"surplus\" label on 20 acres of YOUR park. This 5-acre land grab is just the appetizer. The Sierra Club straight-up warned that once this precedent is set, they'll keep slicing until there's nothing left. And they don't give a damn what you think about it.",
+      "paragraph3": "The developer — PEP Housing and Collective Operations LLC — was hand-picked by the state. Not the county. Napa County literally opposed this. The state said tough shit and did it anyway. Construction could start late 2027 if nobody raises hell.",
+      "cardTitle": "185 UNITS NOBODY ASKED FOR",
+      "cardSubtitle": "Crammed onto YOUR public parkland",
+      "bullet1": "More traffic on Imola Avenue, which is already a parking lot at rush hour",
+      "bullet2": "Building permanent housing in wildfire country — did everyone forget 2017 already?",
+      "bullet3": "Destroys recreation that thousands of Napa families depend on — so a developer can cash in",
+      "bullet4": "This flat land FUNDS the entire park. Lose it, and the whole 874 acres goes to shit",
+      "sources": "All sourced. All verified. We don't make shit up — see below."
+    },
+    "park": {
+      "label": "874 ACRES THE TAXPAYERS PAID FOR",
+      "heading": "This Is OURS — Not Sacramento's to Sell",
+      "card1Title": "Archery & Ranges",
+      "card1Description": "Silverado Archers have maintained 22+ acres of championship ranges here since 1985. Tournaments, 3D shoots, hunter prep. 70 years of history Sacramento wants to bulldoze.",
+      "card2Title": "Events & Community",
+      "card2Description": "Pow wows. Scout camps. Equestrian shows. BottleRock. RV camping. Open space that actually gets used by real people — not developer profits.",
+      "card3Title": "Wildfire Base Camp",
+      "card3Description": "This is where fire crews stage when Napa burns. The county wants to tax you for a NEW fire base camp while the state destroys the one that already fucking works.",
+      "closing": "Opened in 1983. Leased for $100/year. The county bought it for $7.26 million in 2024 to protect it. Then Sacramento carved out the best 5 acres and said \"thanks for paying, suckers.\"",
+      "closingBold": "Not surplus. Not for sale. Not yours to take."
+    },
+    "archers": {
+      "badge": "SILVERADO ARCHERS — 70 YEARS AND NOT BACKING DOWN",
+      "heading": "We're not going quietly and neither should you",
+      "body": "The club maintains 22+ acres of championship-level ranges inside the park. Tournaments, 3D shoots, hunter series — all directly in the crosshairs. The state labeled 20 acres as \"surplus.\" This 5-acre project is the first domino. They're coming for the archery ranges next. This is how government land grabs work: one slice at a time until there's nothing left to fight for.",
+      "attribution": "— Silverado Archers, pissed off since 2022"
+    },
+    "originalEmail": {
+      "label": "THE EMAIL THAT LIT THE FUSE",
+      "heading": "The raw, unfiltered email that started this whole damn movement",
+      "intro": "Sent by Matt Petrini, President of Silverado Archers, to club members in February 2026. No edits. No filter. This is what happens when regular people have had enough."
+    },
+    "action": {
+      "heading": "5 MINUTES TO RAISE HELL",
+      "subtext": "Copy. Paste. Send. Make these bastards hear you.",
+      "emailTemplateLabel": "YOUR AMMUNITION",
+      "copyButtonLabel": "COPY & SEND IT",
+      "mediaHeading": "MEDIA & OFFICIALS — BLOW UP THEIR INBOX",
+      "footerLine": "Tell them: Public parkland is not your fucking surplus. Do not set this precedent.",
+      "footerLinkText": "Napa County Board of Supervisors → napacounty.gov",
+      "shareButton": "Spread the word",
+      "forwardNeighbor": "Send to every neighbor you know"
+    },
+    "footer": {
+      "line1": "© 2026 Save Skyline Park — Built by pissed-off Napa taxpayers who are done being ignored",
+      "line2": "No government affiliation. No corporate backing. Just citizens who are sick of Sacramento's bullshit."
+    },
+    "podcast": {
+      "promptButton": "Hear the whole ugly story"
+    },
+    "toasts": {
+      "emailCopied": "Got it — now paste and make them sweat",
+      "templateCopied": "Locked and loaded. Open your mail app and fire.",
+      "linkCopied": "Link copied — spread it everywhere"
+    }
+  },
   "sources": [
     {
       "name": "Napa Valley Register — \"State says Napa affordable housing development to have 185 units\"",
