@@ -141,6 +141,50 @@ function copyEmail(email) {
     });
 }
 
+function getTemplateSubjectAndBody() {
+    const el = document.getElementById('template');
+    const text = (el && el.innerText) ? el.innerText.trim() : '';
+    const subjectMatch = text.match(/^Subject:\s*(.+?)(?:\n|$)/im);
+    const subject = subjectMatch ? subjectMatch[1].trim() : 'Save Skyline Park';
+    const bodyStart = text.indexOf('\n\n');
+    const body = bodyStart >= 0 ? text.slice(bodyStart + 2).trim() : text;
+    return { subject, body };
+}
+
+const TRUNCATE_NOTE = '\n\n[Template shortened for this link; use Copy for full text.]';
+const MAX_BODY_RAW = 700;
+
+function buildComposeUrls(subject, body) {
+    let sub = subject || '';
+    let b = body || '';
+    if (b.length > MAX_BODY_RAW) b = b.slice(0, MAX_BODY_RAW) + TRUNCATE_NOTE;
+    const subEnc = encodeURIComponent(sub);
+    const bodyEnc = encodeURIComponent(b);
+    return {
+        gmail: 'https://mail.google.com/mail/?view=cm&fs=1&su=' + subEnc + '&body=' + bodyEnc,
+        yahoo: 'https://compose.mail.yahoo.com/?subject=' + subEnc + '&body=' + bodyEnc,
+        outlook: 'https://outlook.live.com/mail/0/deeplink/compose?subject=' + subEnc + '&body=' + bodyEnc,
+        mailto: 'mailto:?subject=' + subEnc + '&body=' + bodyEnc
+    };
+}
+
+function openCompose(provider) {
+    const { subject, body } = getTemplateSubjectAndBody();
+    const urls = buildComposeUrls(subject, body);
+    const url = urls[provider];
+    if (!url) return;
+    if (provider === 'mailto') {
+        const a = document.createElement('a');
+        a.href = url;
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    } else {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
+}
+
 function copyTemplate() {
     const text = document.getElementById('template').innerText;
     navigator.clipboard.writeText(text).then(() => {
@@ -195,6 +239,15 @@ function initShareButtons() {
     document.querySelectorAll('#nav-share-btn, #action-share-btn').forEach(btn => {
         if (btn) btn.addEventListener('click', sharePage);
     });
+}
+
+function initFooterShareLinks() {
+    const url = encodeURIComponent(getShareUrl());
+    const text = encodeURIComponent(getShareText());
+    const xLink = document.getElementById('footer-share-x');
+    const fbLink = document.getElementById('footer-share-facebook');
+    if (xLink) xLink.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
+    if (fbLink) fbLink.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
 }
 
 function initAudioPlayer() {
@@ -288,5 +341,6 @@ window.onload = () => {
             ]);
         });
     initShareButtons();
+    initFooterShareLinks();
     initAudioPlayer();
 };

@@ -204,12 +204,29 @@ Archers,
 
             <!-- EMAIL TEMPLATE -->
             <div class="bg-stone-900 rounded-3xl p-8 mb-12">
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-4 mb-6">
                     <div class="font-mono text-emerald-400" data-content="action.emailTemplateLabel">EMAIL TEMPLATE</div>
-                    <button onclick="copyTemplate()" 
-                            class="flex items-center gap-2 bg-stone-800 hover:bg-emerald-900 px-5 py-2 rounded-xl text-sm">
-                        <i class="fas fa-copy"></i> <span data-content="action.copyButtonLabel">COPY FULL EMAIL</span>
-                    </button>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" onclick="copyTemplate()" 
+                                class="flex items-center gap-2 bg-stone-800 hover:bg-emerald-900 px-4 py-2 rounded-xl text-sm">
+                            <i class="fas fa-copy"></i> <span data-content="action.copyButtonLabel">COPY FULL EMAIL</span>
+                        </button>
+                        <span class="text-stone-500 text-sm hidden sm:inline">or compose in:</span>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" onclick="openCompose('gmail')" class="flex items-center gap-2 bg-stone-800 hover:bg-stone-700 px-3 py-2 rounded-xl text-sm transition" aria-label="Open in Gmail">
+                                <i class="fab fa-google text-red-400"></i> <span class="hidden sm:inline">Gmail</span>
+                            </button>
+                            <button type="button" onclick="openCompose('yahoo')" class="flex items-center gap-2 bg-stone-800 hover:bg-stone-700 px-3 py-2 rounded-xl text-sm transition" aria-label="Open in Yahoo Mail">
+                                <i class="fab fa-yahoo text-indigo-400"></i> <span class="hidden sm:inline">Yahoo</span>
+                            </button>
+                            <button type="button" onclick="openCompose('outlook')" class="flex items-center gap-2 bg-stone-800 hover:bg-stone-700 px-3 py-2 rounded-xl text-sm transition" aria-label="Open in Outlook">
+                                <i class="fab fa-microsoft text-sky-400"></i> <span class="hidden sm:inline">Outlook</span>
+                            </button>
+                            <button type="button" onclick="openCompose('mailto')" class="flex items-center gap-2 bg-stone-800 hover:bg-stone-700 px-3 py-2 rounded-xl text-sm transition" aria-label="Open in default mail app">
+                                <i class="fas fa-envelope text-emerald-400"></i> <span class="hidden sm:inline">Mail</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div id="template" data-content="action.emailTemplate" class="bg-black p-6 rounded-2xl font-mono text-sm leading-relaxed text-stone-300 whitespace-pre-wrap">
 Subject: Protect Skyline Wilderness Park — Stop the 185-unit development on public parkland
@@ -288,8 +305,8 @@ Napa County Resident
             <p class="mb-4" data-content="footer.line1">© 2026 Save Skyline Park — Built by Napa residents who care deeply about open space</p>
             <p data-content="footer.line2">Not affiliated with any government. Just taxpayers who remember when "public park" meant something.</p>
             <div class="mt-8 flex justify-center gap-6 text-2xl">
-                <a href="https://x.com" target="_blank" class="hover:text-emerald-400"><i class="fab fa-x-twitter"></i></a>
-                <a href="#" class="hover:text-emerald-400"><i class="fab fa-facebook"></i></a>
+                <a id="footer-share-x" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+                <a id="footer-share-facebook" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>
