@@ -95,7 +95,8 @@
     "label": "AI-GENERATED PODCAST",
     "title": "State Housing Threatens Napa's Skyline Park",
     "disclaimer": "AI-generated — may contain errors or omissions. Intended as an accessible overview of the issues.",
-    "promptButton": "Listen while you read"
+    "promptButton": "Listen while you read",
+    "downloadLabel": "Download"
   },
   "toasts": {
     "emailCopied": "Email copied — paste & send",
