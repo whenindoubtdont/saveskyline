@@ -3,88 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-content="meta.title">Save Skyline Park — Napa's Open Space Under Siege</title>
+    <title data-content="meta.title">Save Skyline Wilderness Park Napa – Stop 185-unit development on public land</title>
     <link rel="canonical" href="https://whenindoubtdont.github.io/saveskyline/">
-    <meta name="description" content="5 acres of Skyline Wilderness Park in Napa are slated for 185 housing units. Fire base camp, archery, pow wows, scouts — all at risk. Take action.">
+    <meta name="description" content="Save Skyline Wilderness Park Napa – Stop 185-unit development on public land used for archery, scouts, pow wows and wildfire base camp. Take action.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Save Skyline Park — Napa's Open Space Under Siege">
-    <meta property="og:description" content="5 acres of Skyline Wilderness Park in Napa are slated for 185 housing units. Fire base camp, archery, pow wows, scouts — all at risk. Take action.">
+    <meta property="og:title" content="Save Skyline Wilderness Park Napa – Stop 185-unit development on public land">
+    <meta property="og:description" content="Public land used for archery, scouts, pow wows and wildfire base camp. 874 acres county-protected; 5 acres still targeted. Take action.">
     <meta property="og:url" content="https://whenindoubtdont.github.io/saveskyline/">
     <meta property="og:image" content="https://whenindoubtdont.github.io/saveskyline/skylinehillsky.jpeg">
     <meta property="og:image:width" content="1920">
     <meta property="og:image:height" content="1080">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Save Skyline Park — Napa's Open Space Under Siege">
-    <meta name="twitter:description" content="5 acres of Skyline Wilderness Park in Napa are slated for 185 housing units. Take action.">
+    <meta name="twitter:title" content="Save Skyline Wilderness Park Napa – Stop 185-unit development on public land">
+    <meta name="twitter:description" content="Public land used for archery, scouts, pow wows and wildfire base camp. Take action.">
     <meta name="twitter:image" content="https://whenindoubtdont.github.io/saveskyline/skylinehillsky.jpeg">
+    <meta name="theme-color" content="#0c0a09">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23059669' d='M16 4L4 14v14h24V14L16 4zm0 4l8 6v10H8V14l8-6z'/%3E%3C/svg%3E">
+    <link rel="preload" href="skylinehillsky.jpeg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="bg-stone-950 text-stone-100 font-sans">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <!-- NAVBAR -->
-    <nav class="bg-stone-900 border-b border-green-900 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <i class="fas fa-mountain text-3xl text-emerald-500"></i>
+    <nav class="nav-bar bg-stone-900/95 backdrop-blur-sm border-b border-stone-800 sticky top-0 z-50" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="#main" class="flex items-center gap-3 group">
+                <i class="fas fa-mountain text-2xl sm:text-3xl text-emerald-500 group-hover:text-emerald-400 transition"></i>
                 <div>
-                    <span class="text-2xl font-bold tracking-tighter" data-content="nav.logoSkyline">SKYLINE</span>
-                    <span class="text-emerald-400 font-bold" data-content="nav.logoPark">PARK</span>
+                    <span class="text-xl sm:text-2xl font-bold tracking-tighter font-heading" data-content="nav.logoSkyline">SKYLINE</span>
+                    <span class="text-emerald-400 font-bold font-heading" data-content="nav.logoPark">PARK</span>
                 </div>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#threat" class="nav-link hover:text-emerald-400 transition" data-content="nav.linkThreat">The Threat</a>
+                <a href="#park" class="nav-link hover:text-emerald-400 transition" data-content="nav.linkPark">Our Park</a>
+                <a href="#archers" class="nav-link hover:text-emerald-400 transition" data-content="nav.linkArchers">Silverado Archers</a>
+                <a href="#action" class="nav-link hover:text-emerald-400 transition" data-content="nav.linkAction">Take Action</a>
+                <a href="#sources" class="nav-link hover:text-emerald-400 transition" data-content="nav.linkSources">Sources</a>
             </div>
-            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-                <a href="#threat" class="hover:text-emerald-400 transition" data-content="nav.linkThreat">The Threat</a>
-                <a href="#park" class="hover:text-emerald-400 transition" data-content="nav.linkPark">Our Park</a>
-                <a href="#archers" class="hover:text-emerald-400 transition" data-content="nav.linkArchers">Silverado Archers</a>
-                <a href="#action" class="hover:text-emerald-400 transition" data-content="nav.linkAction">Take Action</a>
-                <a href="#sources" class="hover:text-emerald-400 transition" data-content="nav.linkSources">Sources</a>
-            </div>
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
                 <button type="button" id="nav-share-btn" class="flex items-center gap-2 text-stone-300 hover:text-emerald-400 transition text-sm font-medium" aria-label="Share this page">
                     <i class="fas fa-share-nodes"></i>
                     <span class="hidden sm:inline" data-content="nav.shareButton">Share</span>
                 </button>
                 <a href="#action" 
-                   class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-full text-sm font-bold tracking-wider transition" data-content="nav.ctaButton">CONTACT NOW</a>
+                   class="bg-emerald-600 hover:bg-emerald-500 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-bold tracking-wider transition font-heading" data-content="nav.ctaButton">CONTACT NOW</a>
+                <button type="button" id="nav-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-stone-300 hover:text-emerald-400 transition rounded-lg" aria-label="Open menu" aria-expanded="false">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="nav-menu" class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-stone-900 border-b border-stone-800 shadow-xl" aria-hidden="true">
+            <div class="px-4 py-4 flex flex-col gap-1">
+                <a href="#threat" class="mobile-nav-link" data-content="nav.linkThreat">The Threat</a>
+                <a href="#park" class="mobile-nav-link" data-content="nav.linkPark">Our Park</a>
+                <a href="#archers" class="mobile-nav-link" data-content="nav.linkArchers">Silverado Archers</a>
+                <a href="#action" class="mobile-nav-link" data-content="nav.linkAction">Take Action</a>
+                <a href="#sources" class="mobile-nav-link" data-content="nav.linkSources">Sources</a>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden hero-viewport">
-        <div class="absolute inset-0 bg-[url('skylinehillsky.jpeg')] bg-cover bg-center"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
+    <header id="main" class="relative min-h-screen flex items-center justify-center overflow-hidden hero-viewport">
+        <div class="absolute inset-0 hero-bg bg-[url('skylinehillsky.jpeg')] bg-cover bg-center" role="img" aria-label="Skyline Wilderness Park hills, Napa County"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/75 to-black"></div>
         <div class="relative z-10 text-center max-w-4xl px-6 py-8 hero-content">
-            <div class="inline-flex items-center gap-2 bg-red-900/80 text-red-100 px-4 py-1 rounded-full text-xs tracking-widest mb-4 sm:mb-6">
-                <i class="fas fa-exclamation-triangle"></i> <span data-content="hero.badge">URGENT — PUBLIC LAND AT RISK</span>
-            </div>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-4 sm:mb-6">
-                <span data-content="hero.headlineLine1">THEY WANT TO BUILD ON</span><br>
-                <span class="text-emerald-400" data-content="hero.headlineLine2">SKYLINE PARK</span><br>
-                <span data-content="hero.headlineLine3">AND WE'RE NOT GOING TO LET THEM</span>
+            <p class="hero-badge text-emerald-400/95 text-sm font-mono tracking-[0.2em] uppercase mb-5 sm:mb-6" data-content="hero.badge">Napa County · 874 Acres at Stake</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight leading-[1.1] mb-5 sm:mb-6 text-white drop-shadow-lg" data-content="hero.headline">
+                Save Skyline Park — Napa's Open Space Under Siege
             </h1>
-            <p class="text-base sm:text-xl md:text-2xl text-stone-300 max-w-2xl mx-auto mb-6 sm:mb-10" data-content="hero.subtext">
-                5 acres of taxpayer-preserved parkland in our 874-acre wilderness park — slated for 185 high-density housing units. Fire base camp, archery ranges, pow wows, scouts, equestrian shows — all at risk.
+            <p class="text-base sm:text-xl md:text-2xl text-stone-200/95 max-w-2xl mx-auto mb-8 sm:mb-10 font-light" data-content="hero.subhead">
+                874 acres now county-protected. 5 acres still targeted for 185 high-density units.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#action" 
-                   class="bg-white text-stone-950 hover:bg-emerald-400 hover:text-white px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3 transition">
-                    <i class="fas fa-bullhorn"></i> 
-                    <span data-content="hero.buttonEmails">SEND THE EMAILS — 5 MINUTES</span>
-                </a>
-                <a href="https://www.napacounty.gov/1316/Board-of-Supervisors" target="_blank" class="supervisors-link border border-emerald-500 hover:bg-emerald-900 px-10 py-4 rounded-full font-bold text-lg transition" data-content="hero.buttonSupervisors">CALL THE SUPERVISORS</a>
-            </div>
-            <div class="mt-8 sm:mt-12 text-xs uppercase tracking-widest text-stone-400" data-content="hero.footerLine">
-                Napa residents preserved this park. The state wants to hand it to developers under Executive Order N-06-19.
-            </div>
+            <a href="#action" class="hero-cta inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-stone-950 px-10 py-4 rounded-full font-bold text-lg transition font-heading shadow-lg shadow-emerald-900/30 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-stone-950" data-content="hero.ctaButton" aria-label="Contact Napa County Board of Supervisors">
+                Contact Supervisors Now
+            </a>
         </div>
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-4xl text-emerald-400"></i>
-        </div>
+        <a href="#threat" class="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-stone-400 hover:text-emerald-400 transition scroll-smooth" aria-label="Scroll to content">
+            <span class="text-xs uppercase tracking-widest">Scroll</span>
+            <i class="fas fa-chevron-down text-2xl sm:text-3xl motion-safe:animate-bounce" aria-hidden="true"></i>
+        </a>
     </header>
 
     <!-- THE THREAT -->
-    <section id="threat" class="py-24 bg-stone-900">
+    <section id="threat" class="section-reveal py-24 bg-stone-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
@@ -121,7 +129,7 @@
     </section>
 
     <!-- OUR PARK -->
-    <section id="park" class="py-24 bg-black">
+    <section id="park" class="section-reveal py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="text-emerald-400 text-sm font-mono" data-content="park.label">874 ACRES OF NAPA'S TREASURE</div>
@@ -152,9 +160,9 @@
     </section>
 
     <!-- ARCHERS -->
-    <section id="archers" class="py-24 bg-stone-900">
+    <section id="archers" class="section-reveal py-24 bg-stone-900">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <img src="skylinearcheryrange.jpeg" alt="Silverado Archers range at Skyline Wilderness Park" data-content="archers.imageAlt"
+            <img src="skylinearcheryrange.jpeg" alt="Silverado Archers range at Skyline Wilderness Park" data-content="archers.imageAlt" loading="lazy"
                  class="mx-auto rounded-3xl mb-10 shadow-2xl">
             <div class="max-w-2xl mx-auto">
                 <div class="inline-flex bg-emerald-900 text-emerald-300 px-6 py-2 rounded-full text-sm mb-6" data-content="archers.badge">
@@ -170,7 +178,7 @@
     </section>
 
     <!-- ORIGINAL EMAIL -->
-    <section id="email" class="py-24 bg-black">
+    <section id="email" class="section-reveal py-24 bg-black">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-10">
                 <div class="text-emerald-400 text-sm font-mono tracking-[4px] mb-4" data-content="originalEmail.label">THE EMAIL THAT STARTED THIS</div>
@@ -195,7 +203,7 @@ Archers,
     </section>
 
     <!-- ACTION -->
-    <section id="action" class="py-24 bg-emerald-950 border-t-4 border-emerald-500">
+    <section id="action" class="section-reveal py-24 bg-emerald-950 border-t-4 border-emerald-500">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-5xl font-black tracking-tighter mb-4" data-content="action.heading">5 MINUTES TO FIGHT BACK</h2>
@@ -207,8 +215,9 @@ Archers,
                 <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-4 mb-6">
                     <div class="font-mono text-emerald-400" data-content="action.emailTemplateLabel">EMAIL TEMPLATE</div>
                     <div class="flex flex-wrap items-center gap-2">
-                        <button type="button" onclick="copyTemplate()" 
-                                class="flex items-center gap-2 bg-stone-800 hover:bg-emerald-900 px-4 py-2 rounded-xl text-sm">
+                        <button type="button" id="copy-template-btn" onclick="copyTemplate()" 
+                                class="flex items-center gap-2 bg-emerald-800 hover:bg-emerald-700 px-5 py-3 sm:py-2 rounded-xl text-sm font-semibold min-h-[44px] sm:min-h-0"
+                                aria-label="Copy full email template to clipboard">
                             <i class="fas fa-copy"></i> <span data-content="action.copyButtonLabel">COPY FULL EMAIL</span>
                         </button>
                         <span class="text-stone-500 text-sm hidden sm:inline">or compose in:</span>
@@ -263,12 +272,30 @@ Napa County Resident
                 </div>
             </div>
 
-            <!-- SHARE -->
-            <div class="flex justify-center mb-12">
-                <button type="button" id="action-share-btn" class="flex items-center gap-3 bg-stone-800 hover:bg-stone-700 border border-stone-600 hover:border-emerald-600 text-stone-200 px-6 py-4 rounded-2xl font-semibold transition">
+            <!-- SUPERVISORS PHONE LIST -->
+            <div class="bg-stone-900 rounded-2xl p-6 mb-8">
+                <h3 class="text-emerald-400 font-mono text-sm tracking-wider mb-3">NAPA COUNTY BOARD OF SUPERVISORS</h3>
+                <p class="text-stone-400 text-sm mb-4">Clerk of the Board: <a href="tel:+17072534580" class="text-emerald-400 hover:underline">(707) 253-4580</a></p>
+                <ul class="text-stone-400 text-sm space-y-1" aria-label="Supervisor district phone numbers">
+                    <li>District 1: <a href="tel:+17072534828" class="text-emerald-400 hover:underline">(707) 253-4828</a></li>
+                    <li>District 2: <a href="tel:+17072598276" class="text-emerald-400 hover:underline">(707) 259-8276</a></li>
+                    <li>District 3: <a href="tel:+17072534827" class="text-emerald-400 hover:underline">(707) 253-4827</a></li>
+                    <li>District 4: <a href="tel:+17072598278" class="text-emerald-400 hover:underline">(707) 259-8278</a></li>
+                    <li>District 5: <a href="tel:+17072598277" class="text-emerald-400 hover:underline">(707) 259-8277</a></li>
+                </ul>
+                <p class="text-stone-500 text-xs mt-3"><a href="https://www.napacounty.gov/1316/Board-of-Supervisors" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-400">Full board info at napacounty.gov</a></p>
+            </div>
+
+            <!-- SHARE + FORWARD -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button type="button" id="action-share-btn" class="flex items-center gap-3 bg-stone-800 hover:bg-stone-700 border border-stone-600 hover:border-emerald-600 text-stone-200 px-6 py-4 rounded-2xl font-semibold transition" aria-label="Share this page">
                     <i class="fas fa-share-nodes text-xl text-emerald-400"></i>
                     <span data-content="action.shareButton">Share this page</span>
                 </button>
+                <a id="forward-neighbor-link" href="mailto:?subject=Please%20read%20this%20about%20Skyline%20Park&amp;body=https%3A%2F%2Fwhenindoubtdont.github.io%2Fsaveskyline%2F" class="flex items-center gap-3 bg-stone-800 hover:bg-stone-700 border border-stone-600 hover:border-emerald-600 text-stone-200 px-6 py-4 rounded-2xl font-semibold transition" aria-label="Forward to a neighbor by email">
+                    <i class="fas fa-paper-plane text-xl text-emerald-400"></i>
+                    <span data-content="action.forwardNeighbor">Forward to a Neighbor</span>
+                </a>
             </div>
 
             <div class="text-center text-xs text-stone-500 mt-12">
@@ -279,7 +306,7 @@ Napa County Resident
     </section>
 
     <!-- SOURCES -->
-    <section id="sources" class="py-24 bg-stone-900">
+    <section id="sources" class="section-reveal py-24 bg-stone-900">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <div class="text-emerald-400 text-sm font-mono tracking-[4px] mb-4">VERIFIED REPORTING</div>
@@ -295,21 +322,26 @@ Napa County Resident
     <!-- INFOGRAPHIC -->
     <section class="py-16 bg-black border-t border-stone-800">
         <div class="max-w-4xl mx-auto px-6">
-            <img src="infographic.png" alt="Skyline Park at a glance — key facts about the threat to the park" class="w-full h-auto rounded-2xl shadow-2xl">
+            <img src="infographic.png" alt="Skyline Park at a glance — key facts about the threat to the park" loading="lazy" class="w-full h-auto rounded-2xl shadow-2xl">
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black py-16 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto px-6 text-center text-stone-500 text-sm">
-            <p class="mb-4" data-content="footer.line1">© 2026 Save Skyline Park — Built by Napa residents who care deeply about open space</p>
-            <p data-content="footer.line2">Not affiliated with any government. Just taxpayers who remember when "public park" meant something.</p>
-            <div class="mt-8 flex justify-center gap-6 text-2xl">
-                <a id="footer-share-x" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
-                <a id="footer-share-facebook" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
+    <footer class="footer-block bg-stone-950 py-20 border-t-2 border-stone-800">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-stone-400 text-base font-medium mb-2" data-content="footer.line1">© 2026 Save Skyline Park — Built by Napa residents who care deeply about open space</p>
+            <p class="text-stone-500 text-sm mb-8" data-content="footer.line2">Not affiliated with any government. Just taxpayers who remember when "public park" meant something.</p>
+            <div class="flex justify-center gap-8 text-2xl">
+                <a id="footer-share-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwhenindoubtdont.github.io%2Fsaveskyline%2F&amp;text=Skyline%20Wilderness%20Park%20in%20Napa%20is%20under%20threat.%20Take%20action%20to%20save%20the%20park." target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-emerald-400 transition" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+                <a id="footer-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwhenindoubtdont.github.io%2Fsaveskyline%2F" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-emerald-400 transition" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- BACK TO TOP -->
+    <a href="#main" id="back-to-top" class="back-to-top left" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
     <!-- STICKY AUDIO PLAYER -->
     <div id="audio-player" class="fixed bottom-0 left-0 right-0 z-50 bg-stone-900/95 backdrop-blur border-t border-stone-700 transform translate-y-full transition-transform duration-300">
@@ -353,6 +385,6 @@ Napa County Resident
         <source src="skyline-park-podcast.m4a" type="audio/mp4">
     </audio>
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 </html>

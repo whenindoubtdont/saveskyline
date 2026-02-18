@@ -186,14 +186,29 @@ function openCompose(provider) {
 }
 
 function copyTemplate() {
-    const text = document.getElementById('template').innerText;
+    const el = document.getElementById('template');
+    const btn = document.getElementById('copy-template-btn');
+    const text = el ? el.innerText : '';
     navigator.clipboard.writeText(text).then(() => {
         const msg = contentCache?.toasts?.templateCopied || 'Full template copied. Open your mail app and paste.';
         const notif = document.createElement('div');
         notif.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-3xl shadow-2xl flex items-center gap-3 z-50 font-medium';
-        notif.innerHTML = `&#x2713; ${escapeHtml(msg)}`;
+        notif.innerHTML = '&#x2713; ' + escapeHtml(msg);
         document.body.appendChild(notif);
         setTimeout(() => notif.remove(), 3000);
+        if (btn) {
+            const label = btn.querySelector('span');
+            const icon = btn.querySelector('i');
+            const origText = label ? label.textContent : '';
+            if (label) label.textContent = 'Copied!';
+            if (icon) icon.className = 'fas fa-check';
+            btn.disabled = true;
+            setTimeout(() => {
+                if (label) label.textContent = origText;
+                if (icon) icon.className = 'fas fa-copy';
+                btn.disabled = false;
+            }, 2000);
+        }
     });
 }
 
@@ -248,6 +263,11 @@ function initFooterShareLinks() {
     const fbLink = document.getElementById('footer-share-facebook');
     if (xLink) xLink.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
     if (fbLink) fbLink.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+
+    const forwardLink = document.getElementById('forward-neighbor-link');
+    if (forwardLink) {
+        forwardLink.href = 'mailto:?subject=' + encodeURIComponent('Please read this about Skyline Park') + '&body=' + encodeURIComponent(getShareUrl());
+    }
 }
 
 function initAudioPlayer() {
@@ -318,6 +338,56 @@ function initAudioPlayer() {
     });
 }
 
+function initMobileMenu() {
+    const btn = document.getElementById('nav-menu-btn');
+    const menu = document.getElementById('nav-menu');
+    const icon = btn ? btn.querySelector('i') : null;
+    if (!btn || !menu) return;
+    btn.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen);
+        btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        if (icon) icon.className = isOpen ? 'fas fa-times text-xl' : 'fas fa-bars text-xl';
+    });
+    menu.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('is-open');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+                btn.setAttribute('aria-label', 'Open menu');
+                if (icon) icon.className = 'fas fa-bars text-xl';
+            }
+        });
+    });
+}
+
+function initSectionReveal() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        document.querySelectorAll('.section-reveal').forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.05 });
+    document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
+}
+
+function initBackToTop() {
+    const link = document.getElementById('back-to-top');
+    if (!link) return;
+    const hero = document.querySelector('header#main');
+    const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 600;
+    function update() {
+        if (window.scrollY > heroBottom * 0.8) link.classList.add('is-visible');
+        else link.classList.remove('is-visible');
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+}
+
 window.onload = () => {
     fetch('content.json')
         .then(r => r.ok ? r.json() : Promise.reject())
@@ -343,4 +413,7 @@ window.onload = () => {
     initShareButtons();
     initFooterShareLinks();
     initAudioPlayer();
+    initMobileMenu();
+    initSectionReveal();
+    initBackToTop();
 };

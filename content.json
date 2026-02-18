@@ -1,7 +1,7 @@
 {
   "_editorNote": "Edit the text below to change the website. Use \\n for new lines in long blocks (e.g. action.emailTemplate). Save and refresh the page.",
   "meta": {
-    "title": "Save Skyline Park — Napa's Open Space Under Siege",
+    "title": "Save Skyline Wilderness Park Napa – Stop 185-unit development on public land",
     "supervisorsUrl": "https://www.napacounty.gov/1316/Board-of-Supervisors",
     "siteUrl": "https://whenindoubtdont.github.io/saveskyline/",
     "shareText": "Skyline Wilderness Park in Napa is under threat — 5 acres slated for 185 housing units. Take action to save the park."
@@ -18,14 +18,10 @@
     "shareButton": "Share"
   },
   "hero": {
-    "badge": "URGENT — PUBLIC LAND AT RISK",
-    "headlineLine1": "THEY WANT TO BUILD ON",
-    "headlineLine2": "SKYLINE PARK",
-    "headlineLine3": "AND WE'RE NOT GOING TO LET THEM",
-    "subtext": "5 acres of taxpayer-preserved parkland in our 874-acre wilderness park — slated for 185 high-density housing units. Fire base camp, archery ranges, pow wows, scouts, equestrian shows — all at risk.",
-    "buttonEmails": "SEND THE EMAILS — 5 MINUTES",
-    "buttonSupervisors": "CALL THE SUPERVISORS",
-    "footerLine": "Napa residents preserved this park. The state wants to hand it to developers under Executive Order N-06-19."
+    "badge": "Napa County · 874 Acres at Stake",
+    "headline": "Save Skyline Park — Napa's Open Space Under Siege",
+    "subhead": "874 acres now county-protected. 5 acres still targeted for 185 high-density units.",
+    "ctaButton": "Contact Supervisors Now"
   },
   "threat": {
     "label": "THE FACTS — UPDATED NOV 2025",
@@ -77,7 +73,8 @@
     "mediaHeading": "MEDIA & OFFICIALS — CONTACT THEM",
     "footerLine": "Tell them: Public parkland is not surplus. Do not set this precedent.",
     "footerLinkText": "Napa County Board of Supervisors → napacounty.gov",
-    "shareButton": "Share this page"
+    "shareButton": "Share this page",
+    "forwardNeighbor": "Forward to a Neighbor"
   },
   "footer": {
     "line1": "© 2026 Save Skyline Park — Built by Napa residents who care deeply about open space",
