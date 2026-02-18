@@ -24,11 +24,6 @@ body {
     font-family: var(--font-heading);
 }
 
-.tail-container {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
 /* Skip link — visible on focus for a11y */
 .skip-link {
     position: absolute;
@@ -140,6 +135,9 @@ footer {
 /* Hero: full-bleed fixed background, mobile Safari viewport and safe areas */
 .hero-bg {
     background-attachment: fixed;
+}
+@supports (-webkit-touch-callout: none) {
+    .hero-bg { background-attachment: scroll; }
 }
 .hero-viewport {
     min-height: 100vh;

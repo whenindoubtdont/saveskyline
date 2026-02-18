@@ -109,7 +109,7 @@ function populateSources(sources) {
     const container = document.getElementById('sources-list');
     if (!container) return;
     container.innerHTML = '';
-    list.forEach((src, i) => {
+    list.forEach((src) => {
         const div = document.createElement('a');
         div.href = src.url || '#';
         div.target = '_blank';
@@ -130,14 +130,19 @@ function populateSources(sources) {
     });
 }
 
+function showToast(msg) {
+    const notif = document.createElement('div');
+    notif.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50';
+    notif.innerHTML = '<i class="fas fa-check"></i> ' + escapeHtml(msg);
+    document.body.appendChild(notif);
+    setTimeout(() => notif.remove(), 2500);
+}
+
 function copyEmail(email) {
     navigator.clipboard.writeText(email).then(() => {
-        const msg = contentCache?.toasts?.emailCopied || 'Email copied — paste & send';
-        const notif = document.createElement('div');
-        notif.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50';
-        notif.innerHTML = `<i class="fas fa-check"></i> ${escapeHtml(msg)}`;
-        document.body.appendChild(notif);
-        setTimeout(() => notif.remove(), 2500);
+        showToast(contentCache?.toasts?.emailCopied || 'Email copied — paste & send');
+    }).catch(() => {
+        showToast('Could not copy — try selecting the email manually');
     });
 }
 
@@ -189,26 +194,29 @@ function copyTemplate() {
     const el = document.getElementById('template');
     const btn = document.getElementById('copy-template-btn');
     const text = el ? el.innerText : '';
+
+    function resetBtn() {
+        if (!btn) return;
+        const label = btn.querySelector('span');
+        const icon = btn.querySelector('i');
+        if (label) label.textContent = label.dataset.orig || 'COPY FULL EMAIL';
+        if (icon) icon.className = 'fas fa-copy';
+        btn.disabled = false;
+    }
+
     navigator.clipboard.writeText(text).then(() => {
-        const msg = contentCache?.toasts?.templateCopied || 'Full template copied. Open your mail app and paste.';
-        const notif = document.createElement('div');
-        notif.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-3xl shadow-2xl flex items-center gap-3 z-50 font-medium';
-        notif.innerHTML = '&#x2713; ' + escapeHtml(msg);
-        document.body.appendChild(notif);
-        setTimeout(() => notif.remove(), 3000);
+        showToast(contentCache?.toasts?.templateCopied || 'Full template copied. Open your mail app and paste.');
         if (btn) {
             const label = btn.querySelector('span');
             const icon = btn.querySelector('i');
-            const origText = label ? label.textContent : '';
-            if (label) label.textContent = 'Copied!';
+            if (label) { label.dataset.orig = label.dataset.orig || label.textContent; label.textContent = 'Copied!'; }
             if (icon) icon.className = 'fas fa-check';
             btn.disabled = true;
-            setTimeout(() => {
-                if (label) label.textContent = origText;
-                if (icon) icon.className = 'fas fa-copy';
-                btn.disabled = false;
-            }, 2000);
+            setTimeout(resetBtn, 2000);
         }
+    }).catch(() => {
+        showToast('Could not copy — try selecting the text manually');
+        resetBtn();
     });
 }
 
@@ -229,11 +237,9 @@ function sharePage() {
     const text = getShareText();
 
     if (navigator.share) {
-        navigator.share({ title, text, url })
-            .then(() => {})
-            .catch(() => {
-                copyLinkFallback(url);
-            });
+        navigator.share({ title, text, url }).catch(() => {
+            copyLinkFallback(url);
+        });
     } else {
         copyLinkFallback(url);
     }
@@ -241,12 +247,9 @@ function sharePage() {
 
 function copyLinkFallback(url) {
     navigator.clipboard.writeText(url).then(() => {
-        const msg = contentCache?.toasts?.linkCopied || 'Link copied — paste to share';
-        const notif = document.createElement('div');
-        notif.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50';
-        notif.innerHTML = `<i class="fas fa-check"></i> ${escapeHtml(msg)}`;
-        document.body.appendChild(notif);
-        setTimeout(() => notif.remove(), 2500);
+        showToast(contentCache?.toasts?.linkCopied || 'Link copied — paste to share');
+    }).catch(() => {
+        showToast('Could not copy link');
     });
 }
 
@@ -338,26 +341,128 @@ function initAudioPlayer() {
     });
 }
 
+function initDistrictFinder() {
+    var form = document.getElementById('district-finder');
+    var input = document.getElementById('district-address');
+    var submitBtn = document.getElementById('district-submit');
+    var resultEl = document.getElementById('district-result');
+    var errorEl = document.getElementById('district-error');
+    if (!form) return;
+
+    var GEOCODE_URL = 'https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
+    var DISTRICT_URL = 'https://gis.napacounty.gov/arcgis/rest/services/Hosted/Supervisor_Districts/FeatureServer/0/query';
+
+    var supervisors = {
+        '1': { name: 'Joelle Gallagher', phone: '(707) 253-4828', tel: '+17072534828' },
+        '2': { name: 'Liz Alessio', phone: '(707) 259-8276', tel: '+17072598276' },
+        '3': { name: 'Anne Cottrell', phone: '(707) 253-4827', tel: '+17072534827' },
+        '4': { name: 'Amber Manfree', phone: '(707) 259-8278', tel: '+17072598278' },
+        '5': { name: 'Belia Ramos', phone: '(707) 259-8277', tel: '+17072598277' }
+    };
+
+    function setLoading(on) {
+        submitBtn.disabled = on;
+        submitBtn.innerHTML = on
+            ? '<i class="fas fa-spinner fa-spin"></i> Looking up…'
+            : '<i class="fas fa-search"></i> Find My Supervisor';
+    }
+
+    function showError(msg) {
+        resultEl.classList.add('hidden');
+        errorEl.textContent = msg;
+        errorEl.classList.remove('hidden');
+    }
+
+    function showResult(district, matchAddr) {
+        errorEl.classList.add('hidden');
+        var sup = supervisors[district] || { name: 'Supervisor', phone: '(707) 253-4580', tel: '+17072534580' };
+        resultEl.innerHTML =
+            '<div class="bg-emerald-900/40 border border-emerald-700 rounded-xl p-4">' +
+                '<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">' +
+                    '<div>' +
+                        '<div class="text-emerald-400 text-xs font-mono mb-1">YOUR SUPERVISOR</div>' +
+                        '<div class="text-white text-lg font-bold">' + escapeHtml(sup.name) + '</div>' +
+                        '<div class="text-stone-400 text-sm">District ' + escapeHtml(district) + '</div>' +
+                        (matchAddr ? '<div class="text-stone-500 text-xs mt-1">' + escapeHtml(matchAddr) + '</div>' : '') +
+                    '</div>' +
+                    '<a href="tel:' + sup.tel + '" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-xl font-semibold text-sm transition min-h-[44px]">' +
+                        '<i class="fas fa-phone"></i> Call ' + escapeHtml(sup.phone) +
+                    '</a>' +
+                '</div>' +
+            '</div>';
+        resultEl.classList.remove('hidden');
+
+        document.querySelectorAll('#supervisor-list [data-district]').forEach(function(el) {
+            if (el.dataset.district === district) {
+                el.classList.add('ring-1', 'ring-emerald-500');
+            } else {
+                el.classList.remove('ring-1', 'ring-emerald-500');
+            }
+        });
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var addr = input.value.trim();
+        if (!addr) return;
+        if (!/napa/i.test(addr)) addr += ', Napa, CA';
+        setLoading(true);
+        errorEl.classList.add('hidden');
+        resultEl.classList.add('hidden');
+
+        fetch(GEOCODE_URL + '?SingleLine=' + encodeURIComponent(addr) + '&outFields=Match_addr&maxLocations=1&f=json')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var c = data.candidates && data.candidates[0];
+                if (!c || c.score < 70) throw new Error('not_found');
+                var lng = c.location.x;
+                var lat = c.location.y;
+                var matchAddr = c.attributes && c.attributes.Match_addr;
+                return fetch(DISTRICT_URL + '?geometry=' + lng + ',' + lat +
+                    '&geometryType=esriGeometryPoint&inSR=4326' +
+                    '&spatialRel=esriSpatialRelIntersects' +
+                    '&outFields=sup_district,supervisor&returnGeometry=false&f=json')
+                    .then(function(r) { return r.json(); })
+                    .then(function(distData) {
+                        var feat = distData.features && distData.features[0];
+                        if (!feat) throw new Error('no_district');
+                        showResult(feat.attributes.sup_district, matchAddr);
+                    });
+            })
+            .catch(function(err) {
+                if (err.message === 'not_found') {
+                    showError('Address not found. Try including your street number and "Napa" (e.g. "1234 Main St, Napa").');
+                } else if (err.message === 'no_district') {
+                    showError('That address doesn\'t appear to be in a Napa County supervisor district. Try a different address.');
+                } else {
+                    showError('Lookup failed — check your connection and try again, or call the Clerk at (707) 253-4580.');
+                }
+            })
+            .finally(function() { setLoading(false); });
+    });
+}
+
 function initMobileMenu() {
     const btn = document.getElementById('nav-menu-btn');
     const menu = document.getElementById('nav-menu');
     const icon = btn ? btn.querySelector('i') : null;
     if (!btn || !menu) return;
+    function setMenuOpen(open) {
+        if (open) {
+            menu.classList.add('is-open');
+        } else {
+            menu.classList.remove('is-open');
+        }
+        menu.setAttribute('aria-hidden', !open);
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        if (icon) icon.className = open ? 'fas fa-times text-xl' : 'fas fa-bars text-xl';
+    }
     btn.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', isOpen);
-        btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        if (icon) icon.className = isOpen ? 'fas fa-times text-xl' : 'fas fa-bars text-xl';
+        setMenuOpen(!menu.classList.contains('is-open'));
     });
     menu.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('is-open');
-            if (btn) {
-                btn.setAttribute('aria-expanded', 'false');
-                btn.setAttribute('aria-label', 'Open menu');
-                if (icon) icon.className = 'fas fa-bars text-xl';
-            }
-        });
+        link.addEventListener('click', () => setMenuOpen(false));
     });
 }
 
@@ -416,4 +521,5 @@ window.onload = () => {
     initMobileMenu();
     initSectionReveal();
     initBackToTop();
+    initDistrictFinder();
 };

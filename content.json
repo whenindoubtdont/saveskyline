@@ -80,6 +80,13 @@
     "line1": "© 2026 Save Skyline Park — Built by Napa residents who care deeply about open space",
     "line2": "Not affiliated with any government. Just taxpayers who remember when \"public park\" meant something."
   },
+  "supervisors": [
+    { "district": "1", "name": "Joelle Gallagher", "phone": "(707) 253-4828", "tel": "+17072534828" },
+    { "district": "2", "name": "Liz Alessio", "phone": "(707) 259-8276", "tel": "+17072598276" },
+    { "district": "3", "name": "Anne Cottrell", "phone": "(707) 253-4827", "tel": "+17072534827" },
+    { "district": "4", "name": "Amber Manfree", "phone": "(707) 259-8278", "tel": "+17072598278" },
+    { "district": "5", "name": "Belia Ramos", "phone": "(707) 259-8277", "tel": "+17072598277" }
+  ],
   "contacts": [
     { "name": "Napa Valley Register", "email": "jennifer.huffman@napanews.com" },
     { "name": "KQED Assignment Desk", "email": "assignmentdesk@kqed.org" },
