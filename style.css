@@ -1,0 +1,26 @@
+/* style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.tail-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Custom scrollbar for template */
+#template::-webkit-scrollbar {
+    width: 6px;
+}
+#template::-webkit-scrollbar-thumb {
+    background: #166534;
+    border-radius: 3px;
+}
