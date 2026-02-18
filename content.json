@@ -1,0 +1,89 @@
+{
+  "_editorNote": "Edit the text below to change the website. Use \\n for new lines in long blocks (e.g. action.emailTemplate). Save and refresh the page.",
+  "meta": {
+    "title": "Save Skyline Park • Napa's Open Space Under Siege",
+    "supervisorsUrl": "https://www.napacounty.gov/1316/Board-of-Supervisors"
+  },
+  "nav": {
+    "logoSkyline": "SKYLINE",
+    "logoPark": "PARK",
+    "linkThreat": "The Threat",
+    "linkPark": "Our Park",
+    "linkArchers": "Silverado Archers",
+    "linkAction": "Take Action",
+    "ctaButton": "CONTACT NOW"
+  },
+  "hero": {
+    "badge": "URGENT • PUBLIC LAND GRAB",
+    "headlineLine1": "THEY WANT TO TURN",
+    "headlineLine2": "SKYLINE PARK",
+    "headlineLine3": "INTO A DENSE HOUSING SHITHOLE",
+    "subtext": "5.26 acres of taxpayer-owned flat land in our 850-acre wilderness park — gone for 185 low-income units. Fire base camp, archery ranges, pow wows, scouts, equestrian shows — all fucked.",
+    "buttonEmails": "SEND THE EMAILS — 5 MINUTES",
+    "buttonSupervisors": "CALL THE SUPERVISORS",
+    "footerLine": "Napa residents paid for this park. Gavin Newsom's state wants to flip it for developer kickbacks."
+  },
+  "threat": {
+    "label": "FACT CHECK — NOV 2025",
+    "heading": "STATE WANTS 185 UNITS\nON SKYLINE'S BEST FLAT LAND",
+    "paragraph1": "5.26 acres along Imola Ave — the flat area we use for **pow wows, SCA events, Boy Scout camping, equestrian shows, BottleRock overflow, and fire crew base camps**.",
+    "paragraph2": "This is the same land taxpayers bought and preserved. County just bought the rest of the 874-acre park to \"protect\" it... while the state carves out this prime chunk for housing.",
+    "paragraph3": "Groundbreaking targeted for mid-2028 under Newsom's surplus land program. They'll charge the park thousands per day to keep using it until then. Next? The archery ranges. Then the rest.",
+    "cardTitle": "185 AFFORDABLE UNITS",
+    "cardSubtitle": "High-density on public parkland",
+    "bullet1": "Traffic nightmare on already busy Imola",
+    "bullet2": "Fire risk in wildfire country (remember 2017?)",
+    "bullet3": "Kills multi-use recreation for Napa families",
+    "bullet4": "Taxpayers get screwed twice — we paid for the land, now we lose it",
+    "sources": "Sources: Napa Valley Register (Nov 28, 2025 & Jul 12, 2025). Sierra Club opposed since 2022."
+  },
+  "park": {
+    "label": "850 ACRES OF NAPA TREASURE",
+    "heading": "This is OURS",
+    "card1Title": "Archery & Ranges",
+    "card1Description": "Silverado Archers' 25 acres — NFAA ranges, tournaments, hunter prep. Family club since 1954.",
+    "card2Title": "Events & Camping",
+    "card2Description": "Pow wows, SCA, Boy Scouts, equestrian shows, BottleRock camping, open space for everyone.",
+    "card3Title": "Fire Base Camp",
+    "card3Description": "Proven wildfire staging area. Now they're proposing a new tax for \"open space fire camps\" while destroying this one.",
+    "closing": "Bought and preserved by Napa citizens decades ago. Used by thousands every year.",
+    "closingBold": "Not surplus. Not for sale."
+  },
+  "archers": {
+    "imageAlt": "Silverado Archers",
+    "badge": "SILVERADO ARCHERS • EST. 1954",
+    "heading": "We're not going quietly",
+    "body": "The club maintains 25 acres of championship ranges inside the park. Tournaments, 3D shoots, hunter series — all threatened. They badgered us out of opposing Measure Z. Now they're coming for the land we helped protect.",
+    "attribution": "— From the Archery Club email, Feb 2026"
+  },
+  "action": {
+    "heading": "5 MINUTES TO FIGHT BACK",
+    "subtext": "Copy, paste, send. Spread it. Save the park.",
+    "emailTemplateLabel": "EMAIL TEMPLATE",
+    "copyButtonLabel": "COPY FULL EMAIL",
+    "emailTemplate": "Subject: Save Skyline Park - Stop the 185-unit housing grab on public land\n\nDear [Media / Supervisor],\n\nNapa's Skyline Wilderness Park is under direct threat. The state wants to build 185 dense affordable housing units on 5.26 acres of the flat event area we taxpayers own and use for archery, pow wows, scouts, equestrian, fire base camps, and more.\n\nThis is the same land we preserved. The county just bought the rest of the park to \"protect open space\" while this gets developed. Irony much?\n\nWe said no to Measure Z because the money didn't go to parks. Now they're punishing us by selling the park out from under us.\n\nPlease cover this story and help stop it. Contact the supervisors. Spread the word.\n\nSkyline Park belongs to the citizens of Napa — not developers.\n\nSincerely,\n[Your Name]\nNapa Resident / Silverado Archers supporter",
+    "mediaHeading": "MEDIA — HIT THESE HARD",
+    "footerLine": "Tell them: Public land is not surplus. Fire base camp > housing.",
+    "footerLinkText": "Napa County Board of Supervisors → napacounty.gov"
+  },
+  "footer": {
+    "line1": "© 2026 Save Skyline Park • Built by Napa residents who give a fuck about open space. Hosted at whenindoubtdont.github.io/saveskyline",
+    "line2": "Not affiliated with any government. Just taxpayers who remember when \"public park\" meant something."
+  },
+  "contacts": [
+    { "name": "Napa Valley Register", "email": "jennifer.huffman@napanews.com" },
+    { "name": "KQED Assignment", "email": "assignmentdesk@kqed.org" },
+    { "name": "California Globe", "email": "katy@californiaglobe.com" },
+    { "name": "California Globe", "email": "evan@californiaglobe.com" },
+    { "name": "News Netter", "email": "newsnetter3@gmail.com" },
+    { "name": "KPIX CBS", "email": "kpixnewsassign.editors@cbs.com" },
+    { "name": "KGO 7 On Your Side", "email": "7onYourSide@kgo-tv.com" },
+    { "name": "FOX News Tips", "email": "newstips@fox.com" },
+    { "name": "KRON 4", "email": "BreakingNews@kron4.com" },
+    { "name": "KCRA", "email": "news@kcra.com" }
+  ],
+  "toasts": {
+    "emailCopied": "Email copied — paste & send",
+    "templateCopied": "Full template copied. Open your mail app and paste."
+  }
+}
