@@ -342,12 +342,12 @@ function initAudioPlayer() {
 }
 
 function initDistrictFinder() {
-    var form = document.getElementById('district-finder');
+    var container = document.getElementById('district-finder');
     var input = document.getElementById('district-address');
     var submitBtn = document.getElementById('district-submit');
     var resultEl = document.getElementById('district-result');
     var errorEl = document.getElementById('district-error');
-    if (!form) return;
+    if (!container || !input || !submitBtn) return;
 
     var GEOCODE_URL = 'https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
     var DISTRICT_URL = 'https://gis.napacounty.gov/arcgis/rest/services/Hosted/Supervisor_Districts/FeatureServer/0/query';
@@ -401,8 +401,7 @@ function initDistrictFinder() {
         });
     }
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    function doLookup() {
         var addr = input.value.trim();
         if (!addr) return;
         if (!/napa/i.test(addr)) addr += ', Napa, CA';
@@ -439,6 +438,11 @@ function initDistrictFinder() {
                 }
             })
             .finally(function() { setLoading(false); });
+    }
+
+    submitBtn.addEventListener('click', doLookup);
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); doLookup(); }
     });
 }
 

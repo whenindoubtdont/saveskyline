@@ -275,16 +275,15 @@ Napa County Resident
             <!-- FIND YOUR SUPERVISOR -->
             <div class="bg-stone-900 rounded-2xl p-6 mb-8">
                 <h3 class="text-emerald-400 font-mono text-sm tracking-wider mb-4">WHO'S MY SUPERVISOR?</h3>
-                <form id="district-finder" class="flex flex-col sm:flex-row gap-3 mb-4" autocomplete="off">
+                <div id="district-finder" class="flex flex-col sm:flex-row gap-3 mb-4" role="search">
                     <label for="district-address" class="sr-only">Enter your Napa County address</label>
-                    <input id="district-address" type="text" placeholder="Enter your Napa address (e.g. 1195 Third St, Napa)"
-                           class="flex-1 bg-stone-950 border border-stone-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-4 py-3 text-stone-100 text-sm placeholder:text-stone-500 outline-none transition min-h-[44px]"
-                           required>
-                    <button type="submit" id="district-submit"
+                    <input id="district-address" type="text" placeholder="Enter your Napa address (e.g. 955 School St, Napa)"
+                           class="flex-1 bg-stone-950 border border-stone-700 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-4 py-3 text-stone-100 text-sm placeholder:text-stone-500 outline-none transition min-h-[44px]">
+                    <button type="button" id="district-submit"
                             class="bg-emerald-700 hover:bg-emerald-600 text-white px-6 py-3 rounded-xl text-sm font-semibold transition min-h-[44px] flex items-center justify-center gap-2 whitespace-nowrap">
                         <i class="fas fa-search"></i> Find My Supervisor
                     </button>
-                </form>
+                </div>
                 <div id="district-result" class="hidden"></div>
                 <div id="district-error" class="hidden text-red-400 text-sm py-2"></div>
 
