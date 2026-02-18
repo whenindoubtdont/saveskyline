@@ -28,3 +28,15 @@ h1, h2, h3 {
 footer {
     padding-bottom: 7rem;
 }
+
+/* Hero: mobile Safari viewport and safe areas */
+.hero-viewport {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.hero-content {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+}
