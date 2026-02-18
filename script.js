@@ -104,6 +104,32 @@ function populateContacts(contacts) {
     });
 }
 
+function populateSources(sources) {
+    const list = Array.isArray(sources) ? sources : [];
+    const container = document.getElementById('sources-list');
+    if (!container) return;
+    container.innerHTML = '';
+    list.forEach((src, i) => {
+        const div = document.createElement('a');
+        div.href = src.url || '#';
+        div.target = '_blank';
+        div.rel = 'noopener noreferrer';
+        div.className = 'block bg-stone-950 hover:bg-stone-800 border border-stone-800 hover:border-emerald-600 rounded-2xl p-5 transition group';
+        div.innerHTML = `
+            <div class="flex justify-between items-start gap-4">
+                <div class="min-w-0">
+                    <div class="font-semibold text-emerald-300 group-hover:text-emerald-200 transition">${escapeHtml(src.name || '')}</div>
+                    <div class="text-sm text-stone-400 mt-1">${escapeHtml(src.description || '')}</div>
+                </div>
+                <div class="text-stone-500 group-hover:text-emerald-400 transition flex-shrink-0 mt-1">
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+            </div>
+        `;
+        container.appendChild(div);
+    });
+}
+
 function copyEmail(email) {
     navigator.clipboard.writeText(email).then(() => {
         const msg = contentCache?.toasts?.emailCopied || 'Email copied — paste & send';
@@ -133,6 +159,7 @@ window.onload = () => {
         .then(content => {
             applyContent(content);
             populateContacts(content.contacts);
+            populateSources(content.sources);
         })
         .catch(() => {
             populateContacts([
