@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-content="meta.title">Save Skyline Park — Napa's Open Space Under Siege</title>
+    <link rel="canonical" href="https://whenindoubtdont.github.io/saveskyline/">
+    <meta name="description" content="5 acres of Skyline Wilderness Park in Napa are slated for 185 housing units. Fire base camp, archery, pow wows, scouts — all at risk. Take action.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Save Skyline Park — Napa's Open Space Under Siege">
+    <meta property="og:description" content="5 acres of Skyline Wilderness Park in Napa are slated for 185 housing units. Fire base camp, archery, pow wows, scouts — all at risk. Take action.">
+    <meta property="og:url" content="https://whenindoubtdont.github.io/saveskyline/">
+    <meta property="og:image" content="https://whenindoubtdont.github.io/saveskyline/skylinehillsky.jpeg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Save Skyline Park — Napa's Open Space Under Siege">
+    <meta name="twitter:description" content="5 acres of Skyline Wilderness Park in Napa are slated for 185 housing units. Take action.">
+    <meta name="twitter:image" content="https://whenindoubtdont.github.io/saveskyline/skylinehillsky.jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -26,8 +39,14 @@
                 <a href="#action" class="hover:text-emerald-400 transition" data-content="nav.linkAction">Take Action</a>
                 <a href="#sources" class="hover:text-emerald-400 transition" data-content="nav.linkSources">Sources</a>
             </div>
-            <a href="#action" 
-               class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-full text-sm font-bold tracking-wider transition" data-content="nav.ctaButton">CONTACT NOW</a>
+            <div class="flex items-center gap-3">
+                <button type="button" id="nav-share-btn" class="flex items-center gap-2 text-stone-300 hover:text-emerald-400 transition text-sm font-medium" aria-label="Share this page">
+                    <i class="fas fa-share-nodes"></i>
+                    <span class="hidden sm:inline" data-content="nav.shareButton">Share</span>
+                </button>
+                <a href="#action" 
+                   class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-full text-sm font-bold tracking-wider transition" data-content="nav.ctaButton">CONTACT NOW</a>
+            </div>
         </div>
     </nav>
 
@@ -227,6 +246,14 @@ Napa County Resident
                 </div>
             </div>
 
+            <!-- SHARE -->
+            <div class="flex justify-center mb-12">
+                <button type="button" id="action-share-btn" class="flex items-center gap-3 bg-stone-800 hover:bg-stone-700 border border-stone-600 hover:border-emerald-600 text-stone-200 px-6 py-4 rounded-2xl font-semibold transition">
+                    <i class="fas fa-share-nodes text-xl text-emerald-400"></i>
+                    <span data-content="action.shareButton">Share this page</span>
+                </button>
+            </div>
+
             <div class="text-center text-xs text-stone-500 mt-12">
                 <span data-content="action.footerLinkText">Napa County Board of Supervisors → <a href="https://www.napacounty.gov/1316/Board-of-Supervisors" target="_blank" class="underline hover:text-emerald-400">napacounty.gov</a></span><br>
                 <span data-content="action.footerLine">Tell them: Public parkland is not surplus. Do not set this precedent.</span>
@@ -245,6 +272,13 @@ Napa County Resident
             <div class="space-y-4" id="sources-list">
                 <!-- Populated by JS -->
             </div>
+        </div>
+    </section>
+
+    <!-- INFOGRAPHIC -->
+    <section class="py-16 bg-black border-t border-stone-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <img src="infographic.png" alt="Skyline Park at a glance — key facts about the threat to the park" class="w-full h-auto rounded-2xl shadow-2xl">
         </div>
     </section>
 

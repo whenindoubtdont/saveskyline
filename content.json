@@ -2,7 +2,9 @@
   "_editorNote": "Edit the text below to change the website. Use \\n for new lines in long blocks (e.g. action.emailTemplate). Save and refresh the page.",
   "meta": {
     "title": "Save Skyline Park — Napa's Open Space Under Siege",
-    "supervisorsUrl": "https://www.napacounty.gov/1316/Board-of-Supervisors"
+    "supervisorsUrl": "https://www.napacounty.gov/1316/Board-of-Supervisors",
+    "siteUrl": "https://whenindoubtdont.github.io/saveskyline/",
+    "shareText": "Skyline Wilderness Park in Napa is under threat — 5 acres slated for 185 housing units. Take action to save the park."
   },
   "nav": {
     "logoSkyline": "SKYLINE",
@@ -12,7 +14,8 @@
     "linkArchers": "Silverado Archers",
     "linkAction": "Take Action",
     "linkSources": "Sources",
-    "ctaButton": "CONTACT NOW"
+    "ctaButton": "CONTACT NOW",
+    "shareButton": "Share"
   },
   "hero": {
     "badge": "URGENT — PUBLIC LAND AT RISK",
@@ -73,7 +76,8 @@
     "emailTemplate": "Subject: Protect Skyline Wilderness Park — Stop the 185-unit development on public parkland\n\nDear [Media Contact / Supervisor],\n\nI'm writing to urge coverage of — and opposition to — the plan to build 185 high-density housing units on 5 acres of Skyline Wilderness Park in Napa.\n\nKey facts:\n- The state designated 20 acres of Skyline as \"surplus\" under Executive Order N-06-19. This 5-acre project is the first slice.\n- The developer (PEP Housing / Collective Operations LLC) was selected by the state — Napa County opposed the removal of this land from the park.\n- Napa County just purchased the remaining 874 acres for $7.26M in December 2024 to preserve it as open space. The state is now carving out the most-used flat area for development.\n- This land hosts wildfire crew base camps, Suscol Intertribal Council pow wows, Boy Scout camping, equestrian events, BottleRock overflow, and archery ranges.\n- Revenue from the flat areas funds the entire park's trail maintenance and operations.\n- The Sierra Club Napa Group has opposed this since 2022, calling the park \"irreplaceable.\"\n\nSkyline Park belongs to the citizens of Napa. Please help us protect it.\n\nSincerely,\n[Your Name]\nNapa County Resident",
     "mediaHeading": "MEDIA & OFFICIALS — CONTACT THEM",
     "footerLine": "Tell them: Public parkland is not surplus. Do not set this precedent.",
-    "footerLinkText": "Napa County Board of Supervisors → napacounty.gov"
+    "footerLinkText": "Napa County Board of Supervisors → napacounty.gov",
+    "shareButton": "Share this page"
   },
   "footer": {
     "line1": "© 2026 Save Skyline Park — Built by Napa residents who care deeply about open space",
@@ -100,7 +104,8 @@
   },
   "toasts": {
     "emailCopied": "Email copied — paste & send",
-    "templateCopied": "Full template copied. Open your mail app and paste."
+    "templateCopied": "Full template copied. Open your mail app and paste.",
+    "linkCopied": "Link copied — paste to share"
   },
   "sources": [
     {

@@ -153,6 +153,50 @@ function copyTemplate() {
     });
 }
 
+function getShareUrl() {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical && canonical.href) return canonical.href;
+    if (contentCache?.meta?.siteUrl) return contentCache.meta.siteUrl;
+    return window.location.href;
+}
+
+function getShareText() {
+    return contentCache?.meta?.shareText || 'Skyline Wilderness Park in Napa is under threat. Take action to save the park.';
+}
+
+function sharePage() {
+    const url = getShareUrl();
+    const title = document.title;
+    const text = getShareText();
+
+    if (navigator.share) {
+        navigator.share({ title, text, url })
+            .then(() => {})
+            .catch(() => {
+                copyLinkFallback(url);
+            });
+    } else {
+        copyLinkFallback(url);
+    }
+}
+
+function copyLinkFallback(url) {
+    navigator.clipboard.writeText(url).then(() => {
+        const msg = contentCache?.toasts?.linkCopied || 'Link copied — paste to share';
+        const notif = document.createElement('div');
+        notif.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50';
+        notif.innerHTML = `<i class="fas fa-check"></i> ${escapeHtml(msg)}`;
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 2500);
+    });
+}
+
+function initShareButtons() {
+    document.querySelectorAll('#nav-share-btn, #action-share-btn').forEach(btn => {
+        if (btn) btn.addEventListener('click', sharePage);
+    });
+}
+
 function initAudioPlayer() {
     const audio = document.getElementById('podcast-audio');
     const player = document.getElementById('audio-player');
@@ -243,5 +287,6 @@ window.onload = () => {
                 { name: "KCRA", email: "news@kcra.com" }
             ]);
         });
+    initShareButtons();
     initAudioPlayer();
 };
