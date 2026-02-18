@@ -353,11 +353,11 @@ function initDistrictFinder() {
     var DISTRICT_URL = 'https://gis.napacounty.gov/arcgis/rest/services/Hosted/Supervisor_Districts/FeatureServer/0/query';
 
     var supervisors = {
-        '1': { name: 'Joelle Gallagher', phone: '(707) 253-4828', tel: '+17072534828' },
-        '2': { name: 'Liz Alessio', phone: '(707) 259-8276', tel: '+17072598276' },
-        '3': { name: 'Anne Cottrell', phone: '(707) 253-4827', tel: '+17072534827' },
-        '4': { name: 'Amber Manfree', phone: '(707) 259-8278', tel: '+17072598278' },
-        '5': { name: 'Belia Ramos', phone: '(707) 259-8277', tel: '+17072598277' }
+        '1': { name: 'Joelle Gallagher', phone: '(707) 253-4828', tel: '+17072534828', email: 'joelle.gallagher@countyofnapa.org' },
+        '2': { name: 'Liz Alessio', phone: '(707) 259-8276', tel: '+17072598276', email: 'liz.alessio@countyofnapa.org' },
+        '3': { name: 'Anne Cottrell', phone: '(707) 253-4827', tel: '+17072534827', email: 'anne.cottrell@countyofnapa.org' },
+        '4': { name: 'Amber Manfree', phone: '(707) 259-8278', tel: '+17072598278', email: 'amber.manfree@countyofnapa.org' },
+        '5': { name: 'Belia Ramos', phone: '(707) 259-8277', tel: '+17072598277', email: 'belia.ramos@countyofnapa.org' }
     };
 
     function setLoading(on) {
@@ -373,9 +373,19 @@ function initDistrictFinder() {
         errorEl.classList.remove('hidden');
     }
 
+    function buildSupervisorMailto(sup) {
+        var tmpl = getTemplateSubjectAndBody();
+        var subject = tmpl.subject;
+        var body = tmpl.body.replace('[Media Contact / Supervisor]', 'Supervisor ' + sup.name);
+        return 'mailto:' + encodeURIComponent(sup.email) +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(body);
+    }
+
     function showResult(district, matchAddr) {
         errorEl.classList.add('hidden');
-        var sup = supervisors[district] || { name: 'Supervisor', phone: '(707) 253-4580', tel: '+17072534580' };
+        var sup = supervisors[district] || { name: 'Supervisor', phone: '(707) 253-4580', tel: '+17072534580', email: '' };
+        var mailtoHref = sup.email ? buildSupervisorMailto(sup) : '';
         resultEl.innerHTML =
             '<div class="bg-emerald-900/40 border border-emerald-700 rounded-xl p-4">' +
                 '<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">' +
@@ -385,9 +395,16 @@ function initDistrictFinder() {
                         '<div class="text-stone-400 text-sm">District ' + escapeHtml(district) + '</div>' +
                         (matchAddr ? '<div class="text-stone-500 text-xs mt-1">' + escapeHtml(matchAddr) + '</div>' : '') +
                     '</div>' +
-                    '<a href="tel:' + sup.tel + '" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-xl font-semibold text-sm transition min-h-[44px]">' +
-                        '<i class="fas fa-phone"></i> Call ' + escapeHtml(sup.phone) +
-                    '</a>' +
+                    '<div class="flex flex-col sm:flex-row gap-2">' +
+                        (mailtoHref
+                            ? '<a href="' + mailtoHref + '" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-xl font-semibold text-sm transition min-h-[44px]">' +
+                                '<i class="fas fa-envelope"></i> Email Supervisor' +
+                              '</a>'
+                            : '') +
+                        '<a href="tel:' + sup.tel + '" class="inline-flex items-center justify-center gap-2 bg-stone-700 hover:bg-stone-600 text-white px-5 py-3 rounded-xl font-semibold text-sm transition min-h-[44px]">' +
+                            '<i class="fas fa-phone"></i> Call ' + escapeHtml(sup.phone) +
+                        '</a>' +
+                    '</div>' +
                 '</div>' +
             '</div>';
         resultEl.classList.remove('hidden');
