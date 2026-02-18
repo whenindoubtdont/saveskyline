@@ -24,3 +24,7 @@ h1, h2, h3 {
     background: #166534;
     border-radius: 3px;
 }
+
+footer {
+    padding-bottom: 7rem;
+}

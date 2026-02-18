@@ -91,6 +91,12 @@
     { "name": "KRON 4 Breaking News", "email": "BreakingNews@kron4.com" },
     { "name": "KCRA Sacramento", "email": "news@kcra.com" }
   ],
+  "podcast": {
+    "label": "AI-GENERATED PODCAST",
+    "title": "State Housing Threatens Napa's Skyline Park",
+    "disclaimer": "AI-generated — may contain errors or omissions. Intended as an accessible overview of the issues.",
+    "promptButton": "Listen while you read"
+  },
   "toasts": {
     "emailCopied": "Email copied — paste & send",
     "templateCopied": "Full template copied. Open your mail app and paste."

@@ -153,6 +153,74 @@ function copyTemplate() {
     });
 }
 
+function initAudioPlayer() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('audio-player');
+    const prompt = document.getElementById('audio-prompt');
+    const playBtn = document.getElementById('audio-play-btn');
+    const icon = document.getElementById('audio-icon');
+    const progressBar = document.getElementById('audio-progress-bar');
+    const progress = document.getElementById('audio-progress');
+    const currentEl = document.getElementById('audio-current');
+    const durationEl = document.getElementById('audio-duration');
+    const closeBtn = document.getElementById('audio-close-btn');
+
+    if (!audio || !player || !prompt) return;
+
+    function fmt(s) {
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    prompt.addEventListener('click', () => {
+        prompt.classList.add('hidden');
+        player.classList.remove('translate-y-full');
+        audio.play();
+    });
+
+    playBtn.addEventListener('click', () => {
+        if (audio.paused) { audio.play(); } else { audio.pause(); }
+    });
+
+    audio.addEventListener('play', () => {
+        icon.className = 'fas fa-pause text-sm';
+    });
+    audio.addEventListener('pause', () => {
+        icon.className = 'fas fa-play text-sm';
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        if (!audio.duration) return;
+        const pct = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = pct + '%';
+        currentEl.textContent = fmt(audio.currentTime);
+    });
+
+    audio.addEventListener('ended', () => {
+        icon.className = 'fas fa-play text-sm';
+        progress.style.width = '0%';
+        currentEl.textContent = '0:00';
+    });
+
+    progressBar.addEventListener('click', (e) => {
+        if (!audio.duration) return;
+        const rect = progressBar.getBoundingClientRect();
+        const pct = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pct * audio.duration;
+    });
+
+    closeBtn.addEventListener('click', () => {
+        audio.pause();
+        player.classList.add('translate-y-full');
+        prompt.classList.remove('hidden');
+    });
+}
+
 window.onload = () => {
     fetch('content.json')
         .then(r => r.ok ? r.json() : Promise.reject())
@@ -175,4 +243,5 @@ window.onload = () => {
                 { name: "KCRA", email: "news@kcra.com" }
             ]);
         });
+    initAudioPlayer();
 };
