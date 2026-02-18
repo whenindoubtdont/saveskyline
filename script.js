@@ -377,12 +377,13 @@ function initDistrictFinder() {
         var tmpl = getTemplateSubjectAndBody();
         var subject = tmpl.subject;
         var body = tmpl.body.replace('[Media Contact / Supervisor]', 'Supervisor ' + sup.name);
-        return 'mailto:' + encodeURIComponent(sup.email) +
+        return 'mailto:' + sup.email +
             '?subject=' + encodeURIComponent(subject) +
             '&body=' + encodeURIComponent(body);
     }
 
     function showResult(district, matchAddr) {
+        district = String(district);
         errorEl.classList.add('hidden');
         var sup = supervisors[district] || { name: 'Supervisor', phone: '(707) 253-4580', tel: '+17072534580', email: '' };
         var mailtoHref = sup.email ? buildSupervisorMailto(sup) : '';
